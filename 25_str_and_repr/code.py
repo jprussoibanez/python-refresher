@@ -35,9 +35,12 @@ class Person:
     def __repr__(self):
         # I'm adding the < > just so it's clear that this is an object we're printing out!
         return (
-            f"<Person({self.name!r}, {self.age})>"
+            f"Person({self.name!r}, {self.age})"
         )  # !r calls the __repr__ method of the thing.
 
 
 bob = Person("Bob", 35)
 print(bob)  # Not as nice, but we could re-create "Bob" very easily.
+
+new_bob = eval(bob.__repr__()) #Recreate bob from expression
+print(new_bob)
